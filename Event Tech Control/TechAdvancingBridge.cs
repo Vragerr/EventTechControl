@@ -41,7 +41,7 @@ namespace TechGate
                 if (asm == null)
                 {
                     // Сборка не найдена — используем fallback (tech фракции/исследования)
-                    LogOnce("Tech Advancing: сборка не найдена, используется fallback (tech фракции/исследования).", true);
+                    LogOnce("Tech Advancing: pack not finded, using fallback (tech faction/research).", true);
                     return;
                 }
                 // Поиск API
@@ -68,7 +68,7 @@ namespace TechGate
                 }
                 if (type == null)
                 {
-                    LogOnce("Tech Advancing API не найден — fallback на tech фракции/исследования.", true);
+                    LogOnce("Tech Advancing API not found — fallback on tech faction/research.", true);
                     return;
                 }
                 var prop = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
@@ -78,7 +78,7 @@ namespace TechGate
                 if (prop != null)
                 {
                     _getter = () => ConvertToTechLevel(prop.GetValue(null));
-                    LogOnce($"Tech Advancing API найден: {type.FullName}.{prop.Name}", false);
+                    LogOnce($"Tech Advancing API Found: {type.FullName}.{prop.Name}", false);
                     return;
                 }
                 var meth = type.GetMethods(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
@@ -89,16 +89,16 @@ namespace TechGate
                 if (meth != null)
                 {
                     _getter = () => ConvertToTechLevel(meth.Invoke(null, null));
-                    LogOnce($"Tech Advancing API найден: {type.FullName}.{meth.Name}()", false);
+                    LogOnce($"Tech Advancing API Found: {type.FullName}.{meth.Name}()", false);
                     return;
                 }
-                LogOnce("Tech Advancing API не найден — fallback на tech фракции/исследования.", true);
+                LogOnce("Tech Advancing API not found — fallback on tech faction/research.", true);
             }
             catch
             {
                 Available = false;
                 _getter = null;
-                LogOnce("Ошибка при интеграции с Tech Advancing — выключено. Будет использован fallback.", true);
+                LogOnce("error integration with Tech Advancing — disabled. Will used fallback.", true);
             }
         }
         public static bool TryGet(out TechLevel level)

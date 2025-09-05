@@ -49,8 +49,8 @@ namespace TechGate
         {
             switch (key)
             {
-                case SortKey.Label: return "Имя";
-                case SortKey.ModName: return "Мод";
+                case SortKey.Label: return "Name";
+                case SortKey.ModName: return "Mod";
                 case SortKey.DefName: return "DefName";
                 default: return key.ToString();
             }
@@ -62,10 +62,10 @@ namespace TechGate
             Widgets.DrawMenuSection(tabsRect);
             var tabs = new List<TabRecord>
         {
-            new TabRecord("Локальные", () => _activeTab = 0, _activeTab == 0),
-            new TabRecord("Мировые", () => _activeTab = 1, _activeTab == 1),
-            new TabRecord("Квесты", () => _activeTab = 2, _activeTab == 2),
-            new TabRecord("Настройки", () => _activeTab = 3, _activeTab == 3),
+            new TabRecord("Local", () => _activeTab = 0, _activeTab == 0),
+            new TabRecord("World", () => _activeTab = 1, _activeTab == 1),
+            new TabRecord("Quests", () => _activeTab = 2, _activeTab == 2),
+            new TabRecord("Settings", () => _activeTab = 3, _activeTab == 3),
         };
             TabDrawer.DrawTabs(tabsRect, tabs);
             var inner = tabsRect.ContractedBy(10f);
@@ -91,21 +91,21 @@ namespace TechGate
         {
             var listing = new Listing_Standard();
             listing.Begin(rect);
-            listing.Label("Источник TechLevel поселения:");
+            listing.Label("Source TechLevel settlements:");
             if (listing.RadioButton(
-                    TechAdvancingBridge.Available ? "Auto (предпочитать Tech Advancing)" : "Auto (если доступно: Tech Advancing)",
+                    TechAdvancingBridge.Available ? "Auto (prefer Tech Advancing)" : "Auto (if avaible Tech Advancing)",
                     Settings.TechMode == ColonyTechMode.AutoPreferTechAdvancing))
                 Settings.TechMode = ColonyTechMode.AutoPreferTechAdvancing;
-            if (listing.RadioButton("Фракция игрока (ванильно)", Settings.TechMode == ColonyTechMode.FactionTech))
+            if (listing.RadioButton("Faction player(vanille)", Settings.TechMode == ColonyTechMode.FactionTech))
                 Settings.TechMode = ColonyTechMode.FactionTech;
-            if (listing.RadioButton("Максимальный среди завершённых исследований", Settings.TechMode == ColonyTechMode.MaxResearched))
+            if (listing.RadioButton("The highest among completed researches", Settings.TechMode == ColonyTechMode.MaxResearched))
                 Settings.TechMode = ColonyTechMode.MaxResearched;
-            if (listing.RadioButton("Ручной выбор", Settings.TechMode == ColonyTechMode.ManualOverride))
+            if (listing.RadioButton("Manual selection", Settings.TechMode == ColonyTechMode.ManualOverride))
                 Settings.TechMode = ColonyTechMode.ManualOverride;
             if (Settings.TechMode == ColonyTechMode.ManualOverride)
             {
                 var tech = Settings.ManualColonyTech;
-                if (listing.ButtonText($"Текущий ручной: {tech}"))
+                if (listing.ButtonText($"Current manual: {tech}"))
                 {
                     var options = Enum.GetValues(typeof(TechLevel)).Cast<TechLevel>()
                         .Where(t => t != TechLevel.Undefined && t != TechLevel.Animal)
@@ -114,11 +114,11 @@ namespace TechGate
                     Find.WindowStack.Add(new FloatMenu(options));
                 }
             }
-            listing.CheckboxLabeled("Блокировать даже принудительные (forced) инциденты", ref Settings.BlockForced);
+            listing.CheckboxLabeled("Block even forced incidents", ref Settings.BlockForced);
             listing.GapLine();
             var currentTech = Settings.GetCurrentColonyTech();
-            var taFlag = TechAdvancingBridge.Available ? " (обнаружен Tech Advancing)" : "";
-            listing.Label($"Текущий вычисленный TechLevel колонии: {currentTech}{taFlag}");
+            var taFlag = TechAdvancingBridge.Available ? " (found Tech Advancing)" : "";
+            listing.Label($"Current calculated TechLevel colonie: {currentTech}{taFlag}");
             listing.End();
         }
         private void DrawIncidentList(
@@ -134,35 +134,35 @@ namespace TechGate
             var list = all.Where(d => Util.IsWorldIncident(d) == isWorld).ToList();
             // Шапка: строка 1 — счетчик, поиск, сортировка
             var header1 = new Rect(rect.x, rect.y, rect.width, TechGateGUI.HeaderH1);
-            Widgets.Label(header1.LeftPartPixels(200f), $"Всего: {list.Count}");
+            Widgets.Label(header1.LeftPartPixels(200f), $"Count: {list.Count}");
             var searchLblRect = new Rect(header1.x + 210f, header1.y, 55f, TechGateGUI.HeaderH1);
-            Widgets.Label(searchLblRect, "Поиск:");
+            Widgets.Label(searchLblRect, "Search:");
             var searchRect = new Rect(searchLblRect.xMax + 4f, header1.y, 260f, TechGateGUI.HeaderH1);
             search = Widgets.TextField(searchRect, search ?? "");
             var sortBtnRect = new Rect(searchRect.xMax + 8f, header1.y, 180f, TechGateGUI.HeaderH1);
-            if (Widgets.ButtonText(sortBtnRect, "Сортировка: " + SortKeyLabel(sortKey)))
+            if (Widgets.ButtonText(sortBtnRect, "Sort: " + SortKeyLabel(sortKey)))
             {
                 var opts = new List<FloatMenuOption>
             {
-                new FloatMenuOption("Имя", () => setSort(SortKey.Label, sortAsc)),
-                new FloatMenuOption("Мод", () => setSort(SortKey.ModName, sortAsc)),
+                new FloatMenuOption("Name", () => setSort(SortKey.Label, sortAsc)),
+                new FloatMenuOption("Mod", () => setSort(SortKey.ModName, sortAsc)),
                 new FloatMenuOption("DefName", () => setSort(SortKey.DefName, sortAsc)),
             };
                 Find.WindowStack.Add(new FloatMenu(opts));
             }
             var dirBtnRect = new Rect(sortBtnRect.xMax + 4f, header1.y, 120f, TechGateGUI.HeaderH1);
-            if (Widgets.ButtonText(dirBtnRect, sortAsc ? "Возр." : "Убыв."))
+            if (Widgets.ButtonText(dirBtnRect, sortAsc ? "Up." : "Down."))
             {
                 setSort(sortKey, !sortAsc);
             }
             // Шапка: строка 2 — Массовые операции
             var header2 = new Rect(rect.x, header1.yMax, rect.width, TechGateGUI.HeaderH2);
             var massBtnRect = new Rect(header2.x, header2.y, 220f, TechGateGUI.HeaderH2);
-            if (Widgets.ButtonText(massBtnRect, "Массовые операции"))
+            if (Widgets.ButtonText(massBtnRect, "Mass operations"))
             {
                 var opts = new List<FloatMenuOption>
             {
-                new FloatMenuOption("Сбросить все к Default", () =>
+                new FloatMenuOption("Reset all to Default", () =>
                 {
                     foreach (var d in list) Settings.SetIncidentMinTech(d, null);
                 })
@@ -172,7 +172,7 @@ namespace TechGate
                 foreach (var t in lvls)
                 {
                     var tCopy = t;
-                    opts.Add(new FloatMenuOption($"Установить всем: не ниже {tCopy}", () =>
+                    opts.Add(new FloatMenuOption($"Sett all: not lower {tCopy}", () =>
                     {
                         foreach (var d in list) Settings.SetIncidentMinTech(d, tCopy);
                     }));
@@ -238,11 +238,11 @@ namespace TechGate
                 // Кнопка min tech
                 var current = Settings.GetIncidentMinTech(def);
                 var btnRect = new Rect(view.width * 0.74f, y + 6f, 220f, rowHeight - 12f);
-                if (Widgets.ButtonText(btnRect, current?.ToString() ?? "Default (без ограничения)"))
+                if (Widgets.ButtonText(btnRect, current?.ToString() ?? "Default (withoutIfs)"))
                 {
                     var options = new List<FloatMenuOption>
                 {
-                    new FloatMenuOption("Default (без ограничения)", () => Settings.SetIncidentMinTech(def, null))
+                    new FloatMenuOption("Default (withoutIfs)", () => Settings.SetIncidentMinTech(def, null))
                 };
                     foreach (var t in Enum.GetValues(typeof(TechLevel)))
                     {
@@ -268,35 +268,35 @@ namespace TechGate
             var list = all.ToList();
             // Шапка: строка 1 — счетчик, поиск, сортировка
             var header1 = new Rect(rect.x, rect.y, rect.width, TechGateGUI.HeaderH1);
-            Widgets.Label(header1.LeftPartPixels(200f), $"Всего: {list.Count}");
+            Widgets.Label(header1.LeftPartPixels(200f), $"Count: {list.Count}");
             var searchLblRect = new Rect(header1.x + 210f, header1.y, 55f, TechGateGUI.HeaderH1);
-            Widgets.Label(searchLblRect, "Поиск:");
+            Widgets.Label(searchLblRect, "Search:");
             var searchRect = new Rect(searchLblRect.xMax + 4f, header1.y, 260f, TechGateGUI.HeaderH1);
             search = Widgets.TextField(searchRect, search ?? "");
             var sortBtnRect = new Rect(searchRect.xMax + 8f, header1.y, 180f, TechGateGUI.HeaderH1);
-            if (Widgets.ButtonText(sortBtnRect, "Сортировка: " + SortKeyLabel(sortKey)))
+            if (Widgets.ButtonText(sortBtnRect, "Sort: " + SortKeyLabel(sortKey)))
             {
                 var opts = new List<FloatMenuOption>
             {
-                new FloatMenuOption("Имя", () => setSort(SortKey.Label, sortAsc)),
-                new FloatMenuOption("Мод", () => setSort(SortKey.ModName, sortAsc)),
+                new FloatMenuOption("Name", () => setSort(SortKey.Label, sortAsc)),
+                new FloatMenuOption("Mod", () => setSort(SortKey.ModName, sortAsc)),
                 new FloatMenuOption("DefName", () => setSort(SortKey.DefName, sortAsc)),
             };
                 Find.WindowStack.Add(new FloatMenu(opts));
             }
             var dirBtnRect = new Rect(sortBtnRect.xMax + 4f, header1.y, 120f, TechGateGUI.HeaderH1);
-            if (Widgets.ButtonText(dirBtnRect, sortAsc ? "Возр." : "Убыв."))
+            if (Widgets.ButtonText(dirBtnRect, sortAsc ? "Up." : "Down."))
             {
                 setSort(sortKey, !sortAsc);
             }
             // Шапка: строка 2 — Массовые операции
             var header2 = new Rect(rect.x, header1.yMax, rect.width, TechGateGUI.HeaderH2);
             var massBtnRect = new Rect(header2.x, header2.y, 220f, TechGateGUI.HeaderH2);
-            if (Widgets.ButtonText(massBtnRect, "Массовые операции"))
+            if (Widgets.ButtonText(massBtnRect, "Mass operations"))
             {
                 var opts = new List<FloatMenuOption>
             {
-                new FloatMenuOption("Сбросить все к Default", () =>
+                new FloatMenuOption("reset all to Default", () =>
                 {
                     foreach (var d in list) Settings.SetQuestMinTech(d, null);
                 })
@@ -306,7 +306,7 @@ namespace TechGate
                 foreach (var t in lvls)
                 {
                     var tCopy = t;
-                    opts.Add(new FloatMenuOption($"Установить всем: не ниже {tCopy}", () =>
+                    opts.Add(new FloatMenuOption($"Set all: not lowwer {tCopy}", () =>
                     {
                         foreach (var d in list) Settings.SetQuestMinTech(d, tCopy);
                     }));
@@ -372,11 +372,11 @@ namespace TechGate
                 // Кнопка min tech
                 var current = Settings.GetQuestMinTech(def);
                 var btnRect = new Rect(view.width * 0.74f, y + 6f, 220f, rowHeight - 12f);
-                if (Widgets.ButtonText(btnRect, current?.ToString() ?? "Default (без ограничения)"))
+                if (Widgets.ButtonText(btnRect, current?.ToString() ?? "Default (withoutIfs)"))
                 {
                     var options = new List<FloatMenuOption>
                 {
-                    new FloatMenuOption("Default (без ограничения)", () => Settings.SetQuestMinTech(def, null))
+                    new FloatMenuOption("Default (withoutIfs)", () => Settings.SetQuestMinTech(def, null))
                 };
                     foreach (var t in Enum.GetValues(typeof(TechLevel)))
                     {
