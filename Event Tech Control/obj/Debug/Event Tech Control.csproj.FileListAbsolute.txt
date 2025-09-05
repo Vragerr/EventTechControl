@@ -1,0 +1,43 @@
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Event Tech Control.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Event Tech Control.pdb
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\0Harmony.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Assembly-CSharp.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\HarmonyMod.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.CoreModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.IMGUIModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.TextRenderingModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\NAudio.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\NVorbis.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.AudioModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Unity.Collections.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Unity.Burst.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Unity.Mathematics.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\com.rlabrecque.steamworks.net.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Assembly-CSharp-firstpass.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.AssetBundleModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.PhysicsModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Unity.TextMeshPro.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\ISharpZipLib.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.InputLegacyModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.PerformanceReportingModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.ImageConversionModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.ScreenCaptureModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.UI.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\netstandard.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.UIModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.Physics2DModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.AnimationModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.SharedInternalsModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.SpriteShapeModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.PropertiesModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Unity.Collections.LowLevel.ILSupport.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\Unity.Burst.Unsafe.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\bin\Debug\UnityEngine.TextCoreFontEngineModule.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\obj\Debug\Event Tech Control.csproj.AssemblyReference.cache
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\obj\Debug\Event Tech Control.csproj.CoreCompileInputs.cache
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\obj\Debug\Event Te.EA801A8B.Up2Date
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\obj\Debug\Event Tech Control.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Event Tech Control\Event Tech Control\obj\Debug\Event Tech Control.pdb
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Assemblies\Event Tech Control.dll
+F:\Вадим\RimWorld by Ludeon Studios\modding\EventTechControl\Assemblies\Event Tech Control.pdb
